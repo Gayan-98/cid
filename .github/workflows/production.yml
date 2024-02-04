@@ -1,6 +1,6 @@
 name: "ci-cd pipeline"
 
-on: 
+on:
   push:
     branches:
     - main
@@ -16,6 +16,8 @@ jobs:
         node-version: 18.x
         cache: 'npm'
         cache-dependency-path: package-lock.json
+    - name: Clear npm cache
+      run: npm cache clean --force
     - name: Install dependencies
       run: npm install 
     # - name: Run tests
